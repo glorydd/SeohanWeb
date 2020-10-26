@@ -5,6 +5,7 @@ import com.seohan.erp.mat.Domain.ItemBalance;
 import com.seohan.erp.mat.Dto.ImportPlanAlarm;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,6 +18,6 @@ public interface ImportPlanRepository extends JpaRepository<ImportPlan, Long> {
 	ItemBalance findByWarhsAndItmno(String warhs, String itmno);
 
 	@Query(value = " SELECT DISTINCT JDATE FROM SMLIB.PUR_PLNA WHERE STAT ='S' AND SABUN = :empid " , nativeQuery=true)
-	String findMaxWorkDate(String empid);
+	String findMaxWorkDate(@Param("empid") String empid);
 
 }

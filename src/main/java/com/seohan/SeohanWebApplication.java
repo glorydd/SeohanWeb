@@ -6,7 +6,6 @@ import com.seohan.erp.mat.Mapper.ItemBalanceHeaderMapper;
 import com.seohan.erp.mat.Mapper.ItemBalanceHisOldMapper;
 import com.seohan.erp.mat.Service.ItemBalanceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +14,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,10 +29,10 @@ import java.time.format.DateTimeFormatter;
 @CrossOrigin(origins = {"http://localhost:8091", "http://localhost:8090", "http://localhost"})
 public class SeohanWebApplication extends SpringBootServletInitializer {
     public static DateTimeFormatter dateFormatString = DateTimeFormatter.ofPattern("yyyyMMdd");
-    public static DateTimeFormatter timeFormatString = DateTimeFormatter.ofPattern("HHmm");
+    public static DateTimeFormatter timeFormatString = DateTimeFormatter.ofPattern("HHmmss");
 
     public static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    public static DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+    public static DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
 
 	@Bean
 	PasswordEncoder passwordEncoder() {

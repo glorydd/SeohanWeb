@@ -11,16 +11,15 @@ import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-@RequestMapping("/mat/importplan")
-@Slf4j
+@RequestMapping("/mat/import-plan/alarm") 
 @RestController
 class ImportPlanRestController {
 	@Autowired
 	private ImportPlanService importPlanService;
 
-	@GetMapping("/alarm")
-	public ResponseEntity<List<ImportPlanAlarm>> getImportPlanList(@RequestParam String userid) {
-		return new ResponseEntity<List<ImportPlanAlarm>>(importPlanService.getOmissionItemList(userid), HttpStatus.OK);
+	@GetMapping("/user/{userid}")
+	public ResponseEntity getImportPlanList(@PathVariable String userid) {
+		return new ResponseEntity(importPlanService.getOmissionItemList(userid), HttpStatus.OK);
 	}
 
 //	@GetMapping("{udate}")
@@ -28,3 +27,4 @@ class ImportPlanRestController {
 //		return importPlanRepository.importPlanListbyUdate(udate);
 //	}
 }
+

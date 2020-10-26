@@ -34,9 +34,12 @@ public class ItDamageServiceImpl implements ItDamageService {
 		String nowDate =  LocalDateTime.now().format(dateFormatString);
 		String nowTime = LocalDateTime.now().format(timeFormatString);
 
-		ItDamage updateItDamage = itDamageRepository.findById(itDamage.getId()).get();
-		updateItDamage.setCtime(nowDate + nowTime);
-		updateItDamage.setStat("09");
+		// ItDamage updateItDamage = itDamageRepository.findById(itDamage.getId()).get();
+		
+		itDamage.setCtime(nowDate + nowTime);
+		itDamage.setStat("09");
+		
+		itDamageRepository.save(itDamage);
 
 //		Report report = new Report();
 //		String docuNo[] = itDamage.getClass3().split("-");
@@ -60,7 +63,7 @@ public class ItDamageServiceImpl implements ItDamageService {
 //		}
 //		itDamageRepository.save(itDamage );
 
-		return updateItDamage;
+		return itDamage;
 	}
 
 	@Override

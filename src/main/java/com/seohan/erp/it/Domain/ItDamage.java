@@ -24,21 +24,21 @@ public class ItDamage {
 	private String fact;
 	private String wrkct;
 	private String class1;
-	private String class2="";
-	private String class3="";
+	private String class2;
+	private String class3;
 	private String rtime;
-	private String rsabun="";
-	private String rteam="";
-	private String rname="";
+	private String rsabun;
+	private String rteam;
+	private String rname;
 	private String rtel;
-	private String rtxt="";
-	private String ctime="";
-	private String csabun="";
-	private String cname="";
-	private String cteam="";
-	private String ctel="";
-	private String ctxt="";
-	private String attach="";
+	private String rtxt;
+	private String ctime;
+	private String csabun;
+	private String cname;
+	private String cteam;
+	private String ctel;
+	private String ctxt;
+	private String attach;
 	private String stat;
 
 	protected void endItDamage(Long id){

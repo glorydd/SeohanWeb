@@ -1,7 +1,7 @@
 package com.seohan.erp.mat.Service;
 
 import com.seohan.erp.base.Domain.Code;
-import com.seohan.erp.base.Mapper.CodeRepository;
+import com.seohan.erp.base.Repository.CodeRepository;
 import com.seohan.erp.mat.Domain.ItmblpfsubEntity;
 import com.seohan.erp.mat.Dto.ItmblpfsubDto;
 import com.seohan.erp.mat.Repository.ItmblpfsubRepository;
