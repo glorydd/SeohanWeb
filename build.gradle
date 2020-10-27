@@ -15,7 +15,7 @@ plugins{
     id 'org.springframework.boot' version '2.1.9.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
-}
+} 
 
 repositories {
     mavenCentral()
@@ -25,6 +25,9 @@ apply plugin: "com.ewerk.gradle.plugins.querydsl"
 group = 'com.seohan'
 version = '0.0.1-SNAPSHOT' 
 sourceCompatibility = '1.8'
+bootJar {
+    mainClassName = "com.seohan.SeohanWebApplication"
+}
 
 configurations {
     compileOnly {
