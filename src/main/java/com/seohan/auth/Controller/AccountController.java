@@ -19,19 +19,12 @@ import java.util.Optional;
 @RequestMapping("/accounts")
 @Slf4j
 @RestController
-class AccountController {
-	@Autowired
-	private JwtService jwtService;
+class AccountController { 
 
 	@Autowired
-	private AccountService accountService;
+	private AccountService accountService; 
 
-	@Autowired
-	private OrgUserRepository orgUserRepository;
-
-
-
-
+	
 	@GetMapping
 	@Description("로그인 사용자 정보가져오기")
 	public ResponseEntity<Account> getAccount(@AuthenticationPrincipal AccountAdapter adapter) {
@@ -53,42 +46,7 @@ class AccountController {
 		// 이미 존재하는 아이디
 		if (byAccountId.isPresent()) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-
-//		Account savedAccount = accountService.createAccount(account);
-
-//		Chat chat1 = Chat.builder()
-//				.account(savedAccount)
-//				.build();
-//
-//		chatRepository.save(chat1);
-
+		} 
 		return new ResponseEntity<>(HttpStatus.OK);
-	}
-
-
-
-
-
-//    @PostMapping("/signin")
-//	@ResponseBody
-//    public ResponseEntity<Account> signin(RequestEntity<Account> reqeustEntity){
-//		Account account = reqeustEntity.getBody();
-//        Account loginAccount = accountService.signin(account.getCompanyCode(), account.getAsabn(), account.getPass());
-//        String token = jwtService.create("account", loginAccount, "account");
-//		HttpHeaders responseHeaders = new HttpHeaders();
-//		responseHeaders.set("Authorization", token);
-//		return new ResponseEntity<Account>(loginAccount, responseHeaders, HttpStatus.OK);
-////		responseHeaders.set("Authorization", jwtService.create("account", loginUser, "user"));
-////		return new ResponseEntity<User>(loginUser, responseHeaders, HttpStatus.OK);
-//    }
-
-//	@PostMapping("save")
-//	public ResponseEntity<Account> createMember(@RequestBody Account member)  throws Exception {
-//		Account memberCreated= memberService.save(member );
-//
-//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/"+memberCreated.getRtime()	).buildAndExpand(memberCreated.getRtime()).toUri();
-////		return   ResponseEntity.created(uri).build();
-//		return new ResponseEntity<Account>(memberCreated, HttpStatus.OK);
-//	}
+	} 
 }
