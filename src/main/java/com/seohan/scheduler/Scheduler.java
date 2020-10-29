@@ -15,13 +15,14 @@ import static com.seohan.SeohanWebApplication.timeFormatString;
 
 @Slf4j
 @Component
-@Profile("prod")
+@Profile("prod")			//	prod profile 에서만 동작 
 public class Scheduler  {
 
 	@Autowired
 	private ItemBalanceService itemBalanceService;
 
-	@Scheduled(cron = "0 0 8 * * ?")
+	@Scheduled(cron = "0 0 0/8 * * *")
+	// @Scheduled(cron = "0 0 8 * * *")
 	public void saveBalance08JobSch() {
 		LocalDateTime now = LocalDateTime.now();
 		String nowDate = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
@@ -30,24 +31,8 @@ public class Scheduler  {
 		itemBalanceService.saveBalanceNow();
 
 //		scheduledJobs.saveBalanceOldByDate(nowDate, nowTime );
-		System.out.println("Java cron job expression:: " + nowDate + nowTime);
+		System.out.println("seohan save balance:: " + nowDate + nowTime);
 	}
-
-	@Scheduled(cron = "0 0 0 * * ?")
-	public void saveBalance00JobSch() {
-		LocalDateTime now = LocalDateTime.now();
-		String nowDate = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-		String nowTime = now.format(DateTimeFormatter.ofPattern("HHmmss"));
-
-		itemBalanceService.saveBalanceNow();
-
-//		scheduledJobs.saveBalanceOldByDate(nowDate, nowTime );
-		log.info("Java cron job expression:: " + nowDate + nowTime);
-//		System.out.println("Java cron job expression:: " + nowDate + nowTime);
-	}
-
-	@Scheduled(fixedDelay = 1000)
-	public void getStockDataSch() {
-
-	}
+ 
+ 
 }
